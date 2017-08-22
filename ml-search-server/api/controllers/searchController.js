@@ -4,33 +4,22 @@ var marklogic = require('marklogic');
 var my = require('./my-connection');
 var db = marklogic.createDatabaseClient(my.connInfo);
 var _ = require('lodash');
+const querystring = require('querystring');
 
 
 exports.query = function(req, res) {
-    // res.send("Hey its working");
+    console.log("page size", req.params.query);
     var qb = marklogic.queryBuilder;
     db.documents.query(
-        qb.where(qb.byExample({ tags: 'javascript' }))
+        qb.where(qb.byExample({ tags: req.params.query }))
     ).result(function(documents) {
-        console.log(documents);
-        // for(document in documents){
-
-        // }
-
-        // var data = _.map(documents,"text");
-        // console.log ("Data"+data);
         var Url = _.map(documents, 'uri');
         var data = _.map(documents, 'content.text');
 
-        console.log("Data", data, Url);
-
-        res.end(JSON.stringify("URL" + Url + "data" + data));
-
-        // documents.for( function(document) {
-        // //res.send('\nURI: ' + document.uri + document.content.name); 
-        // res.end('document: ' + document.content.text);
-        // });
-        // res.end(JSON.stringify(documents));
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        const list = res.end(JSON.stringify(documents));
+        console.log(list);
     }, function(error) {
         res.send(JSON.stringify(error, null, 2));
     });
