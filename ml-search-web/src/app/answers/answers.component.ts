@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-answers',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answers.component.css']
 })
 export class AnswersComponent implements OnInit {
-
+  @Input() ans: any;
   constructor() { }
 
   ngOnInit() {
+    console.log("answers", this.ans)
   }
 
 }

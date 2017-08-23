@@ -1,0 +1,16 @@
+.box {
+    padding-top: 40px;
+    margin-left: 40%;
+}
+
+.txtwidth {
+    width: 200px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.btn {
+    margin-left: 10px;
+    height: 27px;
+    width: 60px;
+}

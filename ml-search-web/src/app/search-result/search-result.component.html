@@ -1,5 +1,5 @@
-<div *ngIf="searchData">
-    <div *ngFor="let list of searchData">
+<div *ngIf="searchData" class="list">
+    <div *ngFor="let list of searchData" class="">
         <a routerLink="/view" [queryParams]="{url: list.url}">{{list.url}}</a>
         <p>{{list.text}}</p>
     </div>
