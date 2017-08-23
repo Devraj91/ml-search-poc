@@ -1,15 +1,5 @@
 <nav class="flex-row header">
-    <!-- <a class="navbar-brand" href="#">
-        <img style="width:200px;" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Marklogic-logo.PNG">
-    </a> -->
     <div class="navbar">Marklogic Search</div>
-
-</nav><input name="search" #searchTerm>
-<button (click)="performSearch(searchTerm)">Search</button>
-<br>
-<div *ngFor="let list of data">
-    <a target="_blank" routerLink="/view" [queryParams]="{url: list.url}">{{list.url}}</a>
-    <p>{{list.text}}</p>
-</div>
+</nav>
 
 <router-outlet></router-outlet>

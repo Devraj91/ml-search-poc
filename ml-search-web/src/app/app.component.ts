@@ -19,29 +19,11 @@ export class AppComponent {
 
   constructor(
     http: Http,
-    private search: SearchDataService,
-    private router: Router,
     private view: ViewDocService
   ) {
     this.http = http;
   }
 
-  performSearch(searchTerm) {
-    console.log("start searching", searchTerm.value);
-    const page_size = "10";
-
-    const search = "?" + searchTerm.value;
-    var page_no = 1;
-    const url = link => {
-      return { text: searchTerm.value, page_size: page_size };
-    };
-
-    const search_link =
-      "a?" + "text=" + searchTerm.value + "&page_no=" + page_no;
-    this.search.getSearchData(search_link).subscribe(res => {
-      this.data = res;
-    });
-  }
 
   viewJson(list) {
     const l = '?text='+ list;
@@ -59,8 +41,4 @@ export class AppComponent {
     });
   }
 
-
-  onClick() {
-    this.router.navigate(['/view']);
-  }
 }

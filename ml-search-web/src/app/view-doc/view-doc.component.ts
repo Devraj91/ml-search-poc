@@ -8,6 +8,7 @@ import { ViewDocService } from "../view-doc.service";
   styleUrls: ["./view-doc.component.css"]
 })
 export class ViewDocComponent implements OnInit {
+  docs: any;
   doc: any[];
   url: any;
   private sub: any;
@@ -15,9 +16,8 @@ export class ViewDocComponent implements OnInit {
   constructor(private route: ActivatedRoute, private view: ViewDocService) {}
 
   ngOnInit() {
-
     this.sub = this.route.params.subscribe(params => {
-       this.url = params['url']; 
+      this.url = params["url"];
     });
 
     console.log("params", this.sub);
@@ -25,13 +25,19 @@ export class ViewDocComponent implements OnInit {
 
     console.log("params 1", param1);
 
-    const l = '?url='+ param1;
+    const l = "?url=" + param1;
 
     this.view.getViewData(l).subscribe(res => {
       this.doc = res;
+      this.getDoc(this.doc);
       //var e = JSON.stringify(this.doc);
       //this.router.navigate(['/view']);
       console.log("doc obj ", this.doc);
     });
+  }
+
+  getDoc(doc) {
+    this.docs = doc;
+    console.log("docs data", this.docs)
   }
 }

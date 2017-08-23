@@ -1,1 +1,12 @@
-<p> Hello test</p>
+<div *ngIf="docs">
+    <div> Title: {{docs[0].content.title}}</div>
+    <div *ngFor="let d of docs[0].content.answers">
+        <div>
+            Answers: {{d.text}}
+        </div>
+    </div>
+    <div>
+        <li>{{docs[0].content.owner.displayName}}</li>
+        <li>{{docs[0].content.owner.userName}}</li>
+    </div>
+</div>
