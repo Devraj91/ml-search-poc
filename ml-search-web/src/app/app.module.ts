@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { SearchDataService } from "./search-data.service";
 import { ViewDocComponent } from './view-doc/view-doc.component';
 import { ViewDocService } from "./view-doc.service";
+import { AnswersComponent } from './answers/answers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewDocComponent
+    ViewDocComponent,
+    AnswersComponent
   ],
   imports: [
     BrowserModule,
@@ -23,8 +25,8 @@ import { ViewDocService } from "./view-doc.service";
         component: ViewDocComponent
       },
       {
-        path: 'view/:text',
-        component: ViewDocComponent
+        path: 'answers',
+        component: AnswersComponent
       }
   ])
   ],

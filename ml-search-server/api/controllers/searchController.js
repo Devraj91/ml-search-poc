@@ -24,9 +24,9 @@ exports.query = function(req, res) {
 }
 
 exports.view = function(req, res) {
-    console.log(req.query.text);
+    console.log(req.query.url);
     var qb = marklogic.queryBuilder;
-    db.documents.read(req.query.text).result(function(documents) {
+    db.documents.read(req.query.url).result(function(documents) {
         res.send(documents);
     }, function(error) {
         res.send(JSON.stringify(error, null, 2));

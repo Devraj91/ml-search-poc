@@ -8,9 +8,8 @@
 <button (click)="performSearch(searchTerm)">Search</button>
 <br>
 <div *ngFor="let list of data">
-    <p (click)="viewJson(list.url)">{{list.url}}</p>
+    <a target="_blank" routerLink="/view" [queryParams]="{url: list.url}">{{list.url}}</a>
     <p>{{list.text}}</p>
 </div>
-<div>
-    <p></p>
-</div>
+
+<router-outlet></router-outlet>

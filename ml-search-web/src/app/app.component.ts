@@ -11,7 +11,7 @@ import { ViewDocService } from "./view-doc.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  doc: any[];
+  doc = [];
   title = "app";
   http: Http;
   result = [];
@@ -44,14 +44,23 @@ export class AppComponent {
   }
 
   viewJson(list) {
-    const link = "a?text=" + list;
-    
-    this.view.getViewData(link).subscribe(res => {
+    const l = '?text='+ list;
+    var d = [];
+   // this.router.navigateByUrl(`/view?url=${encodeURI(list)}`);
+    // this.router.navigate([(l).replace(/%3F/g, '?')]);
+           console.log("link", l);
+    // this.router.navigate([`view?url=${list}`]);
+    this.view.getViewData(l).subscribe(res => {
       this.doc = res;
-      // this.router.navigate(['/view']);
-      console.log("document", this.doc);
-      var viewData = this.doc['content'];
-      console.log('Docs',viewData);
+      //var e = JSON.stringify(this.doc);
+      //this.router.navigate(['/view']);
+      console.log("doc obj ", this.doc );
+
     });
+  }
+
+
+  onClick() {
+    this.router.navigate(['/view']);
   }
 }
