@@ -6,13 +6,13 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class SearchDataService {
-  private service_url = "http://localhost:3000/search/";
+export class ViewDocService {
+  private service_url = "http://localhost:3000/view/";
 
 
   constructor(private http: Http) {}
 
-  getSearchData(params): Observable<any[]> {
+  getViewData(params): Observable<any[]> {
     return this.http
       .get(this.service_url + params )
       .map((res: Response) => res.json());

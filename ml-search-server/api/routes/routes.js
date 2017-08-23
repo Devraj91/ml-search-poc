@@ -5,4 +5,7 @@ module.exports = function(app) {
     app.route('/search/:query')
         .get(search.query);
 
+    app.route('/view/:query')
+        .get(search.view);
+
 };

@@ -1,12 +1,16 @@
 <nav class="flex-row header">
-    <a class="navbar-brand" href="#">
+    <!-- <a class="navbar-brand" href="#">
         <img style="width:200px;" src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Marklogic-logo.PNG">
-    </a>
+    </a> -->
+    <div class="navbar">Marklogic Search</div>
 
 </nav><input name="search" #searchTerm>
 <button (click)="performSearch(searchTerm)">Search</button>
 <br>
 <div *ngFor="let list of data">
-    <a href="#">{{list.uri}}</a>
-    <p>{{list.content.text}}</p>
+    <p (click)="viewJson(list.url)">{{list.url}}</p>
+    <p>{{list.text}}</p>
+</div>
+<div>
+    <p></p>
 </div>
