@@ -6,29 +6,36 @@ var db = marklogic.createDatabaseClient(my.connInfo);
 var _ = require('lodash');
 
 exports.query = function(req, res) {
-    console.log(req.query.text);
     var qb = marklogic.queryBuilder;
-    db.documents.query(
+    const pageNumber = req.query.page_no;
+    console.log("headers: ", req.header);
+    //const pagesize=req.header;
+    const pageSize = 10;
+    const start = (pageNumber - 1) * pageSize;
+    const query = db.documents.query(
         qb.where(qb.byExample({ tags: req.query.text }))
-    ).result(function(documents) {
+    )
+    query.result(function(documents) {
+        console.log('x', _.isArray(documents));
+        const end = start + pageSize;
+        console.log(start, end);
+        console.log('x1', _.slice(documents, start, end));
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        const data = documents.map((document) => {
+        const data = _.slice(documents, start, start + pageSize).map((document) => {
             return { url: document.uri, text: document.content.text.substring(0, 100) };
         })
-
-        res.send(data);
+        res.send({ totalCounts: documents.length, data: data });
     }, function(error) {
         res.send(JSON.stringify(error, null, 2));
     });
 }
-
 exports.view = function(req, res) {
-    console.log(req.query.url);
     var qb = marklogic.queryBuilder;
     db.documents.read(req.query.url).result(function(documents) {
         res.send(documents);
     }, function(error) {
         res.send(JSON.stringify(error, null, 2));
     });
+
 }
