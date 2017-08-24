@@ -29,7 +29,7 @@
     width: 100px;
     height: 100px;
     margin-top: 35px;
-    background: grey;
+    background: #d6cfcf;
     border: 3px solid black;
     margin-left: 30px;
 }
@@ -42,6 +42,6 @@
 .title {
     margin-top: 50px;
     font-family: Helvetica Neue, sans-serif;
-    font-weight: light;
+    font-weight: bold;
     font-size: 26px;
 }

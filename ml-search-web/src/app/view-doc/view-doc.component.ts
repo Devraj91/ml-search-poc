@@ -22,30 +22,23 @@ export class ViewDocComponent implements OnInit {
       this.url = params["url"];
     });
 
-    console.log("params", this.sub);
     let param1 = this.route.snapshot.queryParams["url"];
 
-    console.log("params 1", param1);
 
     const l = "?url=" + param1;
 
     this.view.getViewData(l).subscribe(res => {
       this.doc = res;
       this.getDoc(this.doc);
-      //var e = JSON.stringify(this.doc);
-      //this.router.navigate(['/view']);
       console.log("doc obj ", this.doc);
     });
   }
 
   getDoc(doc) {
     this.docs = doc;
-    console.log("docs data", this.docs);
-
     for (var i = 0; i < this.doc[0].content.comments.length; i++) {
       this.comments.push(this.doc[0].content.comments[i]);
     }
-
     this.getComments(this.comments);
 
    
@@ -53,6 +46,5 @@ export class ViewDocComponent implements OnInit {
 
   getComments(com) {
     this.com = com;
- console.log("comments", this.com);
   }
 }

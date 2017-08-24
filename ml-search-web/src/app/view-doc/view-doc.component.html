@@ -8,11 +8,12 @@
             <div class="title">{{docs[0].content.title}}</div>
         </div>
         <div class="answers">
-            <app-answers [ans]="docs[0].content.answers"></app-answers>
+            <app-answers [ans]="docs[0].content.answers" [accepted]="doc[0].content.acceptedAnswerId"></app-answers>
         </div>
     </div>
-    Comments:
-    <div class="comments" *ngFor="let comment of com">
-        <li>{{comment.text}}</li>
-    </div>
+    <label>Comments:
+        <div class="comments" *ngFor="let comment of com">
+            <li>{{comment.text}}</li>
+        </div>
+    </label>
 </div>
