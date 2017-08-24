@@ -31,11 +31,11 @@ export class SearchContainerComponent implements OnInit {
     const page_size = "10";
 
     var page_no = 1;
-    var search_link = "?text=" + searchTerm.value + "&page_no=" + page_no;
+    var search_link = "?text=" + searchTerm + "&page_no=" + page_no;
     this.search.getSearchData(search_link).subscribe(res => {
       this.data = res;
       this.getData(this.data);
-      console.log("search data", this.data);
+      console.log("search link", search_link);
     });
   }
 

@@ -8,10 +8,12 @@ import { ViewDocService } from "../view-doc.service";
   styleUrls: ["./view-doc.component.css"]
 })
 export class ViewDocComponent implements OnInit {
+  com: any;
   docs: any;
   doc: any[];
   url: any;
   private sub: any;
+  comments = [];
 
   constructor(private route: ActivatedRoute, private view: ViewDocService) {}
 
@@ -38,6 +40,19 @@ export class ViewDocComponent implements OnInit {
 
   getDoc(doc) {
     this.docs = doc;
-    console.log("docs data", this.docs)
+    console.log("docs data", this.docs);
+
+    for (var i = 0; i < this.doc[0].content.comments.length; i++) {
+      this.comments.push(this.doc[0].content.comments[i]);
+    }
+
+    this.getComments(this.comments);
+
+   
+  }
+
+  getComments(com) {
+    this.com = com;
+ console.log("comments", this.com);
   }
 }

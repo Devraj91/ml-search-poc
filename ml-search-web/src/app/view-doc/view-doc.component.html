@@ -1,13 +1,18 @@
-<div *ngIf="docs">
-    <div> Title: {{docs[0].content.title}}</div>
-    <!-- <div *ngFor="let d of docs[0].content.answers"> -->
-    <app-answers [ans]="docs[0].content.answers"></app-answers>
-    <!-- <div>
-            Answers: {{d.text}}
-        </div> -->
-    <!-- </div> -->
+<div class="container" *ngIf="docs">
+    <div class="user_data">
+        <div class="circle"></div>
+        <div class="user">{{docs[0].content.owner.displayName}}</div>
+    </div>
     <div>
-        <li>{{docs[0].content.owner.displayName}}</li>
-        <li>{{docs[0].content.owner.userName}}</li>
+        <div class="content_title">
+            <div class="title">{{docs[0].content.title}}</div>
+        </div>
+        <div class="answers">
+            <app-answers [ans]="docs[0].content.answers"></app-answers>
+        </div>
+    </div>
+    Comments:
+    <div class="comments" *ngFor="let comment of com">
+        <li>{{comment.text}}</li>
     </div>
 </div>

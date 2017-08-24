@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SearchDataService {
-  private service_url = "http://localhost:3000/search/";
+  private service_url = "http://localhost:3000/search";
   // private page_size = 10;
 headers:Headers;
 options:RequestOptions;
