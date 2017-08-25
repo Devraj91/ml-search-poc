@@ -17,6 +17,7 @@ export class SearchContainerComponent implements OnInit {
   http: Http;
   result = [];
   data = [];
+  
 
   constructor(
     http: Http,
@@ -25,12 +26,12 @@ export class SearchContainerComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
-
+  
   performSearch(searchTerm) {
     const page_size = "10";
-
-    var page_no = 1;
     var search_link = "?text=" + searchTerm + "&page_no=" + page_no;
+    var page_no = 1;
+    
     this.search.getSearchData(search_link).subscribe(res => {
       this.data = res;
       this.getData(this.data);
