@@ -1,0 +1,30 @@
+.nav-padding {
+    vertical-align: middle !important;
+}
+
+.header {
+    background-color: black;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0 rgba(0, 0, 0, 0) !important;
+    height: 40px;
+    color: #fff;
+}
+
+.navbar {
+    margin-top: 10px;
+    margin-left: 16px;
+    font-family: Gill Sans Extrabold, sans-serif;
+}
+
+.flex-column,
+.flex-row {
+    display: flex;
+    width: 100%;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}

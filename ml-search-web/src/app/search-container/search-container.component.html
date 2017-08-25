@@ -1,0 +1,5 @@
+<app-search-box (onSearch)="performSearch($event)"></app-search-box>
+
+<div *ngIf="searchData">
+    <app-search-result [searchData]="searchData"></app-search-result>
+</div>
