@@ -13,6 +13,9 @@ import { AnswersComponent } from './answers/answers.component';
 import { SearchContainerComponent } from './search-container/search-container.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { CommentsComponent } from './comments/comments.component';
+import { TitleComponent } from './title/title.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SearchResultComponent } from './search-result/search-result.component';
     AnswersComponent,
     SearchContainerComponent,
     SearchBoxComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    CommentsComponent,
+    TitleComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

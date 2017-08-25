@@ -15,7 +15,6 @@ export class SearchBoxComponent implements OnInit {
   }
 
   search() {
-    console.log("search term", this.searchTerm);
      this.onSearch.emit(this.searchTerm);
   }
 }

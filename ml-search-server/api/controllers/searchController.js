@@ -8,7 +8,6 @@ var _ = require('lodash');
 exports.query = function(req, res) {
     var qb = marklogic.queryBuilder;
     const pageNumber = req.query.page_no;
-    console.log("headers: ", req.header);
     //const pagesize=req.header;
     const pageSize = 10;
     const start = (pageNumber - 1) * pageSize;
@@ -16,10 +15,9 @@ exports.query = function(req, res) {
         qb.where(qb.byExample({ tags: req.query.text }))
     )
     query.result(function(documents) {
-        console.log('x', _.isArray(documents));
+
         const end = start + pageSize;
-        console.log(start, end);
-        console.log('x1', _.slice(documents, start, end));
+
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "X-Requested-With");
         const data = _.slice(documents, start, start + pageSize).map((document) => {

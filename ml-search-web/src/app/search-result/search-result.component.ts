@@ -10,7 +10,6 @@ export class SearchResultComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("search data from child",this.searchData);
   }
 
 }

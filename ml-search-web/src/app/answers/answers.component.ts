@@ -8,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AnswersComponent implements OnInit {
   @Input() ans: any;
   @Input() accepted: any;
+  @Input() ids: any;
+
   constructor() { }
 
   ngOnInit() {
-    console.log("answers", this.ans);
-    console.log("Accepted id", this.accepted)
+    
   }
 
   getClasses(id) {

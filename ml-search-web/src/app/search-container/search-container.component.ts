@@ -27,7 +27,6 @@ export class SearchContainerComponent implements OnInit {
   ngOnInit() {}
 
   performSearch(searchTerm) {
-    console.log("start searching", searchTerm);
     const page_size = "10";
 
     var page_no = 1;
@@ -35,12 +34,10 @@ export class SearchContainerComponent implements OnInit {
     this.search.getSearchData(search_link).subscribe(res => {
       this.data = res;
       this.getData(this.data);
-      console.log("search link", search_link);
     });
   }
 
   getData(data) {
-    console.log("d", data);
     this.searchData = data;
   }
 }

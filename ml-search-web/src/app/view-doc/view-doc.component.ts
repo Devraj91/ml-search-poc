@@ -8,6 +8,11 @@ import { ViewDocService } from "../view-doc.service";
   styleUrls: ["./view-doc.component.css"]
 })
 export class ViewDocComponent implements OnInit {
+  answers: any;
+  accepted_ans_id: any;
+  ans = [];
+  user_name: any;
+  title: any;
   com: any;
   docs: any;
   doc: any[];
@@ -24,13 +29,11 @@ export class ViewDocComponent implements OnInit {
 
     let param1 = this.route.snapshot.queryParams["url"];
 
-
     const l = "?url=" + param1;
 
     this.view.getViewData(l).subscribe(res => {
       this.doc = res;
       this.getDoc(this.doc);
-      console.log("doc obj ", this.doc);
     });
   }
 
@@ -41,7 +44,19 @@ export class ViewDocComponent implements OnInit {
     }
     this.getComments(this.comments);
 
-   
+    for (var j = 0; j < this.docs[0].content.answers.length; j++) {
+      this.ans.push(this.docs[0].content.answers[j]);
+    }
+
+    this.getAnswers(this.ans);
+
+    this.title = this.doc[0].content.title;
+    this.user_name = this.docs[0].content.owner.displayName;
+    this.accepted_ans_id = this.doc[0].content.acceptedAnswerId;
+  }
+
+  getAnswers(ans) {
+    this.answers = ans;
   }
 
   getComments(com) {
